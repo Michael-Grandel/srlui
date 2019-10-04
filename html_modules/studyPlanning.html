@@ -2,7 +2,9 @@
     On this page users in the control group can see weekly goals loaded from a static file. 
     Users in the treatment group will be able to set their own goals, and setup email reminders for study plans --> 
 
+
 <head>
+
 
     <style type="text/css">
 
@@ -438,10 +440,11 @@
     }
 
     </script>
+
+
 </head>
 
 <body>
-
     <script>
         loadScript("/static/SRLUICourseInfo.js", toggleGroupDisplay);
     </script>
@@ -501,6 +504,48 @@
       <p id="descriptionText">Planning your schedule helps you map out time for study, even just 20 minutes. Remember it is better to break down the content into smaller chunks instead of binge watching all the videos at once. You want to watch/learn the content several times as the repetition will help you cement the information into your memory.</p>
       <p id="instruction">Use the form below to schedule email reminders for yourself.</p>
 
+
+      
+      <!-- data and time format does not work in safari or ie it automatically convert to text format. So
+        we add a timepicker and datepicker is type is wrong. (adam) -->
+      <script>
+        
+        $(document).ready(function(){
+
+            if ( $('#time1').prop('type') != 'time' ) {
+                $('#time1').attr('placeholder', "HH:MM AM/PM");
+            }
+
+            if ( $('#time2').prop('type') != 'time' ) {
+                $('#time2').attr('placeholder', "HH:MM AM/PM");
+            }
+
+            if ( $('#time3').prop('type') != 'time' ) {
+                $('#time3').attr('placeholder', "HH:MM AM/PM");
+            }
+
+            if ( $('#date1').prop('type') != 'date' ) {
+                $('#date1').datepicker();
+                $('#date1').attr('placeholder', "MM/DD/YYYY");
+
+            }
+            if ( $('#date2').prop('type') != 'date' ) {
+                $('#date2').datepicker();
+                $('#date2').attr('placeholder', "MM/DD/YYYY");
+
+            }
+
+            if ( $('#date3').prop('type') != 'date' ) {
+                $('#date3').datepicker();
+                $('#date3').attr('placeholder', "MM/DD/YYYY");
+            }
+        
+
+
+        });
+        
+      </script>
+
       <div id="schedule">
         <table>
             <tr>
@@ -518,24 +563,24 @@
                 </td>
             </tr>
             <tr>
-                <td><input type="date" id="date1"></td>
-                <td><input type="time" id="time1"></td>
+                <td><input type="date" id="date1" size=10></td>
+                <td><input type="time" id="time1" size=13></td>
                 <td><input type="text" id="task1"></td>
                 <td><input type="checkbox" id="reminder1" value="10" checked>Ten minutes before<br>
                     <input type="checkbox" id="reminder2" value="60">One hour before<br>
                     <input type="checkbox" id="reminder3" value="120">Two hours before</td>
             </tr>
             <tr>
-                <td><input type="date" id="date2"></td>
-                <td><input type="time" id="time2"></td>
+                <td><input type="date" id="date2" size=10></td>
+                <td><input type="time" id="time2" size=13></td>
                 <td><input type="text" id="task2"></td>
                 <td><input type="checkbox" id="reminder4" value="10" checked>Ten minutes before<br>
                     <input type="checkbox" id="reminder5" value="60">One hour before<br>
                     <input type="checkbox" id="reminder6" value="120">Two hours before</td>
             </tr>
             <tr>
-                <td><input type="date" id="date3"></td>
-                <td><input type="time" id="time3"></td>
+                <td><input type="date" id="date3" size=10></td>
+                <td><input type="time" id="time3" size=13></td>
                 <td><input type="text" id="task3"></td>
                 <td><input type="checkbox" id="reminder7" value="10" checked>Ten minutes before<br>
                     <input type="checkbox" id="reminder8" value="60">One hour before<br>
